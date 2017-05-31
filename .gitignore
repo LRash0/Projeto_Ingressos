@@ -1,3 +1,5 @@
 dev_ingressos/
 ingressos/__pycache__/
-cinema/migrations
+cinema/__pycache__/
+cinema/migrations/__pycache__
+manage.py

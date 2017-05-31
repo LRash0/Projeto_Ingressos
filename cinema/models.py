@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 # Um modelo diz a Django como trabalhar com os dados que serão armazenados 
@@ -7,11 +8,17 @@ from django.db import models
 class Sessao(models.Model):
 	"""As sessoas de um filme."""
 	time = models.TimeField()
-	dataTime = models.DateTimeField()
+	dataTime = models.DateField()
+
+	class Meta:
+		verbose_name_plural = "Sessões"
 
 
-	def __str__():
-		return self.time
+
+	def __str__(self):
+		strTime = self.time.strftime("%H:%M")
+		print("Passei aqui")
+		return strTime
 
 
 class Filme(models.Model):

@@ -1,0 +1,21 @@
+{% extends "cinema/base.html" %}
+
+{% block content %}
+	
+	<p>Filmes</p>
+
+	<ul>
+		{% for filme in filmes %}
+			<li>{{filme}}</li>
+			<li>{{filme.description}}</li>
+			<li>{{filme.genre}}</li>
+			<li>{{filme.duration}}</li>
+			<li>{{filme.sessao}}</li>
+
+		{% empty %}
+			<li>Não há filmes cadastrados</li> 
+		{% endfor %}
+
+	</ul>
+{% endblock content %}
+

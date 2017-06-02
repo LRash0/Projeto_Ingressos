@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
 	# Pagina inicial
 	url(r'^$', views.index,name='index'),
+	url(r'^filmes/$',views.filmes,name='topics'),
 ]

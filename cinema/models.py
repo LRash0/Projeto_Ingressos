@@ -17,7 +17,6 @@ class Sessao(models.Model):
 
 	def __str__(self):
 		strTime = self.time.strftime("%H:%M")
-		print("Passei aqui")
 		return strTime
 
 

@@ -3,3 +3,5 @@ ingressos/__pycache__/
 cinema/__pycache__/
 cinema/migrations/__pycache__
 manage.py
+users/__pycache_/
+users/migrations/__pycache/

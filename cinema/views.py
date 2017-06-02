@@ -1,27 +1,12 @@
 from django.shortcuts import render
 
 # Create your views here.
-# Um modelo diz a Django como trabalhar com os dados que serão armazenados 
-# na aplicação.
+# Recebe informações de uma requisição ,prepara os dados necessários 
+# para gerar uma página e então envia dados de volta ao navegador
 
-class Filme(models.Model):
-	"""Dados de um filme."""
-	name = models.CharField(max_lenght=200)
-	description = models.TextField();
-	genre = models.CharField(max_lenght=50)
-	duration = models.CharField(max_lenght=10);
+def index(request):
+	"""A pagina inicial de Cinema"""
+	return render(request,'cinema/index.html')
 
-	def __str__(self):
-		"""Devolve uma representação em string do modelo."""
-		return self.name;
-
-class Sessao(models.Model):
-	"""As sessoas de um filme."""
-
-class Sala(models.Model):
-	"""A sala da sessao."""
-
-class Cliente(models.Model):
-	"""Representa um cliente: com seus dados,filmes,sessao,sala,cadeira."""
 
 

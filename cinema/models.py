@@ -5,10 +5,24 @@ import datetime
 # Um modelo diz a Django como trabalhar com os dados que serão armazenados 
 # na aplicação.
 
+class Filme(models.Model):
+	"""Dados de um filme."""
+	name = models.CharField(max_length=200)
+	description = models.TextField();
+	genre = models.CharField(max_length=50)
+	duration = models.CharField(max_length=10);
+	#sessao = models.ForeignKey(Sessao,on_delete=models.CASCADE)
+
+
+	def __str__(self):
+		"""Devolve uma representação em string do modelo."""
+		return self.name;
+
 class Sessao(models.Model):
 	"""As sessoas de um filme."""
 	time = models.TimeField()
 	dataTime = models.DateField()
+	filme = models.ForeignKey(Filme,on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name_plural = "Sessões"
@@ -20,18 +34,7 @@ class Sessao(models.Model):
 		return strTime
 
 
-class Filme(models.Model):
-	"""Dados de um filme."""
-	name = models.CharField(max_length=200)
-	description = models.TextField();
-	genre = models.CharField(max_length=50)
-	duration = models.CharField(max_length=10);
-	sessao = models.ForeignKey(Sessao,on_delete=models.CASCADE)
 
-
-	def __str__(self):
-		"""Devolve uma representação em string do modelo."""
-		return self.name;
 
 class Sala(models.Model):
 	"""A sala da sessao."""

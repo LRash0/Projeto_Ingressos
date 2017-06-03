@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Filme
+from .models import Filme,Sessao
 
 # Create your views here.
 # Recebe informações de uma requisição ,prepara os dados necessários 
@@ -12,7 +12,8 @@ def index(request):
 def filmes(request):
 	"""Mostra todos os filmes."""
 	filmes = Filme.objects.order_by('name')
-	context = {'filmes' : filmes}
+	sessao = Sessao.objects.all()
+	context = {'filmes' : filmes,'sessao' : sessao}
 	return render(request,'cinema/filmes.html',context)
 
 

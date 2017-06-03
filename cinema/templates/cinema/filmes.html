@@ -10,7 +10,11 @@
 			<li>{{filme.description}}</li>
 			<li>{{filme.genre}}</li>
 			<li>{{filme.duration}}</li>
-			<li>{{filme.sessao}}</li>
+			{% for s in sessao %}
+				{% if filme.id == s.filme.id %}
+					<p>{{s.time}}</p>
+				{% endif %}
+			{% endfor %}
 
 		{% empty %}
 			<li>Não há filmes cadastrados</li> 

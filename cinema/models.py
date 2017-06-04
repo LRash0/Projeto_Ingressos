@@ -4,7 +4,6 @@ import datetime
 # Create your models here.
 # Um modelo diz a Django como trabalhar com os dados que serão armazenados 
 # na aplicação.
-
 class Filme(models.Model):
 	"""Dados de um filme."""
 	name = models.CharField(max_length=200)
@@ -22,8 +21,7 @@ class Sessao(models.Model):
 	"""As sessoas de um filme."""
 	time = models.TimeField()
 	dataTime = models.DateField()
-	# filme = models.ForeignKey(Filme,on_delete=models.CASCADE)
-	filme = models.ManyToManyField(Filme)
+	filme = models.ForeignKey(Filme,on_delete=models.CASCADE)
 
 	class Meta:
 		verbose_name_plural = "Sessões"

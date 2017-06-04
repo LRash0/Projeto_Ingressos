@@ -12,7 +12,19 @@ def index(request):
 def filmes(request):
 	"""Mostra todos os filmes."""
 	filmes = Filme.objects.order_by('name')
-	sessao = Sessao.objects.all()
+	# sessao = Sessao.objects.all()
+	sessao = {}
+	
+	for filme in filmes:
+		list_sessao = []
+		strTime = ""
+		sessoes = Sessao.objects.filter(filme__id=filme.id)
+		for s in sessoes:
+			strTime = s.time.strftime("%H:%M")
+			list_sessao.append(strTime)
+		sessao[filme.id] = list_sessao
+
+
 	context = {'filmes' : filmes,'sessao' : sessao}
 	return render(request,'cinema/filmes.html',context)
 

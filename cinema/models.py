@@ -22,7 +22,8 @@ class Sessao(models.Model):
 	"""As sessoas de um filme."""
 	time = models.TimeField()
 	dataTime = models.DateField()
-	filme = models.ForeignKey(Filme,on_delete=models.CASCADE)
+	# filme = models.ForeignKey(Filme,on_delete=models.CASCADE)
+	filme = models.ManyToManyField(Filme)
 
 	class Meta:
 		verbose_name_plural = "Sessões"

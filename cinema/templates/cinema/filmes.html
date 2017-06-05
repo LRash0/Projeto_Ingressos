@@ -1,21 +1,27 @@
 {% extends "cinema/base.html" %}
 
-
 {% block content %}
 	
 	<p>Filmes</p>
 
 	<ul>
 		{% for filme in filmes %}
-			<li>{{filme}}</li>
+			<li>{{filme.name}}</li>
 			<li>{{filme.description}}</li>
 			<li>{{filme.genre}}</li>
 			<li>{{filme.duration}}</li>
-			{% for s in sessao %}
-				{% if filme.id == s.filme.id %}
-					<p>{{s.time}}</p>
+			{% for sala in salas %}
+				{% if filme.id == sala.filme.id %}
+					<p>{{sala.name}}</p>
 				{% endif %}
 			{% endfor %}
+
+			{% for sessoes in sessao %}
+				{% if filme.id == sessoes.filme.id %}
+					<p>{{sessoes.time}}</p>
+				{% endif %}
+			{% endfor %}
+
 
 		{% empty %}
 			<li>Não há filmes cadastrados</li> 
@@ -23,3 +29,4 @@
 
 	</ul>
 {% endblock content %}
+
